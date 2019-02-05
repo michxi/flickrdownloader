@@ -52,6 +52,7 @@ class DownloadIt:
     def run(self):
         walkingcount = 0
         allSLLContext = ssl._create_unverified_context()
+        self.flickr.ensurePermission('write')
         with open('urls.txt', 'w') as urlfile:
           for walkingphoto in self.flickr.walk(user_id = 'me', extras = 'url_o', per_page = '500'):
               walkingcount += 1
